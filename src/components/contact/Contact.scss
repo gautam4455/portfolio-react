@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+#contact {
+    width: 100vw;
+    max-width: 90%;
+    margin: auto;
+
+    .form-container {
+        margin-bottom: 3rem;
+
+        form {
+            width: 60%;
+            margin: auto;
+
+            .form-group {
+                margin-bottom: 1rem;
+
+                label {
+                    font-family: $roboto;
+                }
+
+                button {
+                    padding: .4rem 1.7rem;
+                }
+            }
+
+            @media screen and (max-width: 575px) {
+                width: 95%;
+            }
+        }
+    }
+}

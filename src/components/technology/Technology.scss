@@ -1,0 +1,43 @@
+@import "../variables.scss";
+
+.technology {
+    padding: 3rem;
+    margin: 2rem 0 0;
+
+    .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .btn {
+            padding: 0;
+        }
+
+        svg {
+            font-size: 5rem;
+            margin: 2rem 3rem;
+
+            &:hover {
+                color: $primary-light;
+            }
+        }
+    }
+
+    @media screen and (min-width: 576px) and (max-width: 767px) {
+        .icons svg {
+            margin: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 575px) {
+        padding: 3rem 0;
+
+        .icons {
+            svg {
+                font-size: 4rem;
+                margin: 1rem;
+            }
+        }
+    }
+}

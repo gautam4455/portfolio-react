@@ -1,0 +1,57 @@
+/* ============== Colors =========== */
+$primary-light: rgb(221, 0, 221);
+$primary-dark: rgb(50, 0, 50);
+$grey: rgb(221, 221, 221);
+
+
+/* ============= Fonts ============ */
+$lato: 'Lato',
+sans-serif;
+$roboto: 'Roboto',
+sans-serif;
+$open-sans: 'Open Sans',
+sans-serif;
+
+
+$border1: 1px solid red;
+
+
+/* ===================== Common Styles ===================== */
+.color1 {
+    color: $primary-light;
+}
+
+.heading {
+    position: relative;
+    text-align: center;
+
+    h1 {
+        display: inline-block;
+        padding: .5rem 1.5rem .1rem;
+        margin: 1rem 0 2rem;
+        border-bottom: 4px solid $primary-light;
+        font-family: $roboto
+    }
+}
+
+.mybtn {
+    border: 3px solid $primary-light;
+    text-decoration: none;
+    color: black;
+    padding: .4rem 1.2rem;
+    background-color: white;
+    transition: all .4s;
+    font-family: $roboto;
+
+    &:hover:not(:disabled) {
+        background-color: $primary-light;
+        color: white;
+    }
+}
+
+.mybtn:disabled {
+    cursor: not-allowed;
+    color: rgb(150, 150, 150);
+    background-color: lightgrey;
+    border: 1px solid;
+}

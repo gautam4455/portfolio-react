@@ -1,0 +1,22 @@
+@import "../variables.scss";
+
+.resumeSection {
+    text-align: center;
+
+    .resume-container {
+        .btn-box {
+            margin: 3rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pdf {
+            display: flex;
+            justify-content: center;
+
+            .document {
+                border: 1px solid #555;
+            }
+        }
+    }
+}
