@@ -41,7 +41,7 @@ const Contact = () => {
               {...register("name", {
                 required: true,
                 minLength: 3,
-                pattern: /^([a-zA-Z]{3})$/,
+                pattern: /^([a-zA-Z]{3,})$/,
               })}
               placeholder="Enter your name"
               autoComplete="off"
@@ -49,7 +49,7 @@ const Contact = () => {
 
             {errors.name && (
               <small className="form-text color1">
-                Name atleast 3 character long and should not start with number.
+                Please enter valid name.
               </small>
             )}
           </div>
@@ -70,26 +70,25 @@ const Contact = () => {
 
             {errors.email && (
               <small className="form-text color1">
-                Email must be valid. (Example - your_email@gmail.com)
+                Please enter valid email. (Example - your_email@gmail.com)
               </small>
             )}
           </div>
 
           <div className="form-group">
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">Mobile Number</label>
 
             <input
               type="text"
               className="form-control"
               {...register("phone", { required: true, pattern: /^[\d]{10}$/ })}
-              placeholder="Enter your phone"
+              placeholder="Enter your mobile number"
               autoComplete="off"
             />
 
             {errors.phone && (
               <small className="form-text color1">
-                Phone number must be 10 digit long. It contain only
-                numbers(0-9).
+                Please enter valid mobile number.
               </small>
             )}
           </div>
