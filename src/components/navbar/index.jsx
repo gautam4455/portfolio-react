@@ -1,14 +1,14 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-// import { MdClose } from "react-icons/md";
+import { useEffect, useRef, useState } from "react";
+import { MdClose } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
 
 import Logo from "../../assets/images/logo.png";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  // const [showBurgerIcon, setShowBurgerIcon] = useState(true);
+  const location = useLocation();
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
-  // const closeicon = useRef(null);
   const burgericon = useRef(null);
   const navbarRef = useRef(null);
   const navbarContent = useRef(null);
@@ -16,23 +16,12 @@ const Navbar = () => {
   const hideNavbarContent = () => {
     navbarContent.current.classList.remove("show");
   };
-  // const handleBurger = () => {
-  //     console.log("TODO: Close ICON")
-  // if (showBurgerIcon) {
-  //     setShowBurgerIcon(false);
-  //     burgericon.current.classList.add("d-none");
-  //     closeicon.current.classList.remove("d-none");
-  // }
-  // if (showBurgerIcon === false) {
-  //     setShowBurgerIcon(true);
-  //     burgericon.current.classList.remove("d-none");
-  //     closeicon.current.classList.add("d-none");
-  // }
-  // }
-
-  // useEffect(() => {
-  //     closeicon.current.classList.add("d-none");  // initial hide close icon
-  // }, []);
+  const toggleNavbarContent = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+  useEffect(() => {
+    setIsCollapsed(true); // Close navbar on route change
+  }, [location]);
 
   return (
     <nav className="navbar navbar-expand-lg navbarDark" ref={navbarRef}>
@@ -43,7 +32,6 @@ const Navbar = () => {
           to="/"
           onClick={hideNavbarContent}
         >
-          {/* <strong>&lt; GK &gt;</strong> */}
           <img src={Logo} alt="Logo" />
         </Link>
 
@@ -53,15 +41,19 @@ const Navbar = () => {
           className="navbar-toggler"
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
+          onClick={toggleNavbarContent}
         >
-          <div id="burgericon" ref={burgericon}>
-            <div className="line-bar"></div>
-            <div className="line-bar"></div>
-            <div className="line-bar"></div>
-          </div>
-          {/* <div id="closeicon" ref={closeicon}>
-                            <MdClose />
-                        </div> */}
+          {isCollapsed ? (
+            <div id="burgericon" ref={burgericon}>
+              <div className="line-bar"></div>
+              <div className="line-bar"></div>
+              <div className="line-bar"></div>
+            </div>
+          ) : (
+            <div id="burgericon" ref={burgericon}>
+              <MdClose />
+            </div>
+          )}
         </button>
 
         <div
@@ -75,19 +67,19 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {/* <li className="nav-item" onClick={hideNavbarContent}>
-                                <Link className="nav-link" to="/experience">Experience</Link>
-                            </li> */}
+
             <li className="nav-item" onClick={hideNavbarContent}>
               <Link className="nav-link" to="/projects">
                 Projects
               </Link>
             </li>
+
             <li className="nav-item" onClick={hideNavbarContent}>
               <Link className="nav-link" to="/resume">
                 Resume
               </Link>
             </li>
+
             <li className="nav-item" onClick={hideNavbarContent}>
               <Link className="nav-link" to="/contact">
                 Contact
