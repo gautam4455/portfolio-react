@@ -14,7 +14,7 @@ const Contact = () => {
 
     contactForm.reset();
 
-    window.location.reload(false);
+    // window.location.reload(false);
 
     alert("Form Submitted Successfully.");
   };

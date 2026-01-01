@@ -78,10 +78,10 @@ const Resume = () => {
 
       <div className="resume-container mb-5">
         <div className="btn-box">
-          <a className="mybtn" rel="noreferrer nofollow" onClick={downloadFile}>
+          <button className="mybtn" onClick={downloadFile}>
             <FaDownload />
             &nbsp;Download CV
-          </a>
+          </button>
         </div>
 
         <div className="pdf">

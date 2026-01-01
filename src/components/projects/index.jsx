@@ -28,12 +28,13 @@ const Projects = () => {
               <h4 className="card-title">iFood - Online Food</h4>
 
               <p className="card-text">
-                <strong>iFood</strong> is a single page online food static
-                responsive website built in HTML, CSS and JavaScript.
+                <strong>iFood</strong> - A single-page static responsive food
+                website built with HTML and CSS, using media queries for
+                mobile-friendly design.
               </p>
 
               <p>
-                <strong>Technologies:</strong> HTML, CSS, Media Query
+                <strong>Tech Stack:</strong> HTML, CSS, Media Query
               </p>
             </div>
 
@@ -44,7 +45,7 @@ const Projects = () => {
                 target="_blank"
                 className="mybtn"
               >
-                Source Code <BiLinkExternal />
+                View Code <BiLinkExternal />
               </a>
 
               <a
@@ -53,7 +54,7 @@ const Projects = () => {
                 target="_blank"
                 className="mybtn"
               >
-                Go Live <BiLinkExternal />
+                View Demo <BiLinkExternal />
               </a>
             </div>
           </div>
@@ -70,12 +71,12 @@ const Projects = () => {
             <div>
               <h4 className="card-title">iEducation - Online Education</h4>
               <p className="card-text">
-                <strong>iEducation</strong> is a single page online educational
-                static responsive website built in HTML, CSS and JavaScript.
+                <strong>iEducation</strong> - A single-page static responsive
+                educational website built with HTML, CSS, and minimal JavaScript
+                to explore responsive layouts.
               </p>
               <p>
-                <strong>Technologies:</strong> HTML, CSS, Media Query,
-                JavaScript
+                <strong>Tech Stack:</strong> HTML, CSS, JavaScript
               </p>
             </div>
             <div className="btn-box">
@@ -85,7 +86,7 @@ const Projects = () => {
                 target="_blank"
                 className="mybtn"
               >
-                Source Code <BiLinkExternal />
+                View Code <BiLinkExternal />
               </a>
               <a
                 href="https://gautam4455.github.io/iEducation/"
@@ -93,7 +94,7 @@ const Projects = () => {
                 target="_blank"
                 className="mybtn"
               >
-                Go Live <BiLinkExternal />
+                View Demo <BiLinkExternal />
               </a>
             </div>
           </div>
@@ -110,32 +111,32 @@ const Projects = () => {
             <div>
               <h4 className="card-title">Textutils - Text utility app</h4>
               <p className="card-text">
-                <strong>Textutils</strong> is a text utility app which is used
-                to perform certain operations like Character count, word count,
-                convert text from LowerCase to UpperCase and UpperCase to
-                LowerCase. It also remove extra spaces from text.
+                <strong>Textutils</strong> - A React-based text utility app that
+                performs operations like word/character counting, case
+                conversion, and extra space removal, with a dark/light mode
+                toggle.
               </p>
               <p>
-                <strong>Technologies:</strong> HTML, CSS, Bootstrap, JavaScript,
+                <strong>Tech Stack:</strong> HTML, CSS, Bootstrap, JavaScript,
                 React
               </p>
             </div>
             <div className="btn-box">
               <a
-                href="https://github.com/gautam4455/TextUtils-React"
+                href="https://github.com/gautam4455/TextUtils"
                 rel="noreferrer"
                 target="_blank"
                 className="mybtn"
               >
-                Source Code <BiLinkExternal />
+                View Code <BiLinkExternal />
               </a>
               <a
-                href="https://gautam4455.github.io/TextUtils-React/"
+                href="https://gautam4455.github.io/TextUtils/"
                 rel="noreferrer"
                 target="_blank"
                 className="mybtn"
               >
-                Go Live <BiLinkExternal />
+                View Demo <BiLinkExternal />
               </a>
             </div>
           </div>
