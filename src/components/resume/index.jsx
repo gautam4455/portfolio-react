@@ -9,6 +9,7 @@ const Resume = () => {
   const [pdfBlob, setPdfBlob] = useState(null);
   const [width, setWidth] = useState(1200);
   const [isPdfFetched, setIsPdfFetched] = useState(false);
+  const [numPages, setNumPages] = useState(null);
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -88,9 +89,7 @@ const Resume = () => {
           {pdfBlob && (
             <Document
               file={URL.createObjectURL(pdfBlob)} // Use the temporary URL directly
-              onLoadSuccess={() => {
-                return 0;
-              }}
+              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
               className="my-3 document"
             >
               <Page pageNumber={1} scale={getPageWidth()} />
