@@ -3,7 +3,12 @@ import { FaDownload } from "react-icons/fa";
 import { Document, Page, pdfjs } from "react-pdf";
 
 import "./Resume.scss";
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+// Point to the ES module worker shipped with pdfjs-dist
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  "pdfjs-dist/build/pdf.worker.mjs",
+  import.meta.url
+).toString();
 
 const Resume = () => {
   const [pdfBlob, setPdfBlob] = useState(null);
