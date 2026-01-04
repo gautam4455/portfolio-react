@@ -4,11 +4,9 @@ import { Document, Page, pdfjs } from "react-pdf";
 
 import "./Resume.scss";
 
-// Point to the ES module worker shipped with pdfjs-dist
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  "pdfjs-dist/build/pdf.worker.mjs",
-  import.meta.url
-).toString();
+// Import the worker as a URL so Vite copies it into your build
+import pdfWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
+pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const Resume = () => {
   const [pdfBlob, setPdfBlob] = useState(null);
@@ -97,7 +95,7 @@ const Resume = () => {
               onLoadSuccess={({ numPages }) => setNumPages(numPages)}
               className="my-3 document"
             >
-              <Page pageNumber={1} scale={getPageWidth()} />
+              <Page pageNumber={numPages} scale={getPageWidth()} />
             </Document>
           )}
         </div>
