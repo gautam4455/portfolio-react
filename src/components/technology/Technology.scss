@@ -1,43 +1,57 @@
-@import "../variables.scss";
+@use "../variables.scss" as *;
 
 .technology {
     padding: 3rem;
     margin: 2rem 0 0;
 
-    .icons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 2rem;
+    }
 
-        .btn {
-            padding: 0;
+    .tech-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.2s ease;
+
+        .icon {
+            font-size: 5rem;
+            // color: #333;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        svg {
-            font-size: 5rem;
-            margin: 2rem 3rem;
+        p {
+            font-size: 1rem;
+            margin: 0;
+        }
 
-            &:hover {
+        &:hover {
+            transform: translateY(-5px);
+
+            .icon,
+            p {
                 color: $primary-light;
             }
         }
     }
 
+
     @media screen and (min-width: 576px) and (max-width: 767px) {
-        .icons svg {
-            margin: 1.5rem;
+        padding: 2rem;
+
+        .tech-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         }
     }
 
     @media screen and (max-width: 575px) {
-        padding: 3rem 0;
+        padding: 2rem;
 
-        .icons {
-            svg {
-                font-size: 4rem;
-                margin: 1rem;
-            }
+        .tech-grid {
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
         }
     }
 }

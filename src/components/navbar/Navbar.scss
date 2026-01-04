@@ -1,5 +1,4 @@
-@import "../variables.scss";
-
+@use "../variables.scss" as *;
 
 .navbar {
     background-color: rgba(10, 0, 10, 1);
