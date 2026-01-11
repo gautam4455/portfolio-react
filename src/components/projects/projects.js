@@ -2,6 +2,8 @@
 import ieducation from "../../assets/images/projects/ieducation.JPG";
 import ifood from "../../assets/images/projects/ifood.JPG";
 import textutils from "../../assets/images/projects/textutils.JPG";
+import isketchbook from '../../assets/images/projects/isketchbook.jpg';
+import signalist from '../../assets/images/projects/signalist.jpg';
 
 export const projects = [
   {
@@ -27,12 +29,31 @@ export const projects = [
   {
     id: 3,
     imageSrc: textutils,
-    title: "Textutils - Text utility app",
+    title: "Textutils - Text Utility App",
     name: "Textutils",
     description: "A React-based text utility app that performs operations like word/character counting, case conversion, and extra space removal, with a dark/light mode toggle.",
     tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "React"],
     github: "https://github.com/gautam4455/TextUtils",
     demo: "https://gautam4455.github.io/TextUtils/",
   },
-  // Add project6, project7...
+  {
+    id: 4,
+    imageSrc: isketchbook,
+    title: "iSketchbook - Sketching App",
+    name: "iSketchbook",
+    description: "A collaborative sketching app built with Next.js, React, Redux Toolkit, and Socket.IO. It enables multiple users draw together in real time on a shared digital canvas, with TailwindCSS powering the UI.",
+    tech: ["Next.js", "Tailwind", 'Redux', 'Socket.io'],
+    github: "https://github.com/gautam4455/sketchbook",
+    demo: "https://isketchbook.vercel.app/",
+  },
+  {
+    id: 5,
+    imageSrc: signalist,
+    title: "Signalist - Live Stocks App",
+    name: "Signalist",
+    description: "A modern full-stack Next.js app, TailwindCSS, and MongoDB. It includes authentication with Better-Auth, form handling with React Hook Form, Shadcn components, and real-time workflows via Inngest. Built for scalability with Mongoose, Nodemailer and a clean, responsive UI.",
+    tech: ["Next.js", "Tailwind", 'Shadcn', 'Redux', 'Socket.io'],
+    github: "https://github.com/gautam4455/stocks-app",
+    demo: "https://stocks-app-pearl.vercel.app/",
+  },
 ];

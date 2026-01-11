@@ -48,7 +48,7 @@ const Projects = () => {
                     target="_blank"
                     className="mybtn"
                   >
-                    View Code <BiLinkExternal />
+                    Github <BiLinkExternal />
                   </a>
 
                   <a
@@ -57,7 +57,7 @@ const Projects = () => {
                     target="_blank"
                     className="mybtn"
                   >
-                    View Demo <BiLinkExternal />
+                    Demo <BiLinkExternal />
                   </a>
                 </div>
               </div>
