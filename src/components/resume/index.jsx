@@ -30,8 +30,10 @@ const Resume = () => {
   }, []);
 
   const fetchPdfFile = () => {
-    const resumeLink =
-      "https://raw.githubusercontent.com/gautam4455/imghub/2799181d3f3df1fbe29dd026efebc59d6db07913/GK-2022.pdf";
+    // const resumeLink =
+    //   "https://raw.githubusercontent.com/gautam4455/imghub/2799181d3f3df1fbe29dd026efebc59d6db07913/GK-2022.pdf";
+
+    const resumeLink = "./GK-2026.pdf";
 
     fetch(resumeLink)
       .then((response) => {
