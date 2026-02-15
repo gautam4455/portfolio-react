@@ -1,7 +1,7 @@
-import About from "./about";
-import Banner from "./banner";
+import About from "./about/index.tsx";
+import Banner from "./banner/index.tsx";
 import "./index.scss";
-import Technology from "./technology";
+import Technology from "./technology/index.tsx";
 
 const Home = () => {
   return (

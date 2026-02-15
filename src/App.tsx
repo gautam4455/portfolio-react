@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import "./App.scss";
-import Home from "./components";
-import Contact from "./components/contact";
-import Footer from "./components/footer";
-import Navbar from "./components/navbar";
-import Projects from "./components/projects";
-import Resume from "./components/resume";
-import Loader from "./components/utils/Loader";
-import ScrollToTop from "./components/utils/ScrollToTop";
+import Home from "./components/index.tsx";
+import Contact from "./components/contact/index.tsx";
+import Footer from "./components/footer/index.tsx";
+import Navbar from "./components/navbar/index.tsx";
+import Projects from "./components/projects/index.tsx";
+import Resume from "./components/resume/index.tsx";
+import Loader from "./components/utils/Loader.tsx";
+import ScrollToTop from "./components/utils/ScrollToTop.tsx";
 
 function App() {
   const [loading, setLoading] = useState(true);

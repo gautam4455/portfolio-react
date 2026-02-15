@@ -1,5 +1,5 @@
 import "./Banner.scss";
-import TypingText from "./TypingText";
+import TypingText from "./TypingText.tsx";
 
 const Banner = () => {
   return (

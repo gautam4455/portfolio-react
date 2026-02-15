@@ -9,12 +9,12 @@ const Navbar = () => {
   const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const burgericon = useRef(null);
-  const navbarRef = useRef(null);
-  const navbarContent = useRef(null);
+  const burgericon = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLDivElement>(null);
+  const navbarContent = useRef<HTMLDivElement>(null);
 
   const hideNavbarContent = () => {
-    navbarContent.current.classList.remove("show");
+    navbarContent.current?.classList.remove("show");
   };
   const toggleNavbarContent = () => {
     setIsCollapsed(!isCollapsed);

@@ -9,10 +9,10 @@ import pdfWorker from "pdfjs-dist/build/pdf.worker.mjs?url";
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 const Resume = () => {
-  const [pdfBlob, setPdfBlob] = useState(null);
+  const [pdfBlob, setPdfBlob] = useState<Blob | MediaSource | null>(null);
   const [width, setWidth] = useState(1200);
   const [isPdfFetched, setIsPdfFetched] = useState(false);
-  const [numPages, setNumPages] = useState(null);
+  const [numPages, setNumPages] = useState<number>(0);
 
   const handleResize = () => {
     setWidth(window.innerWidth);
@@ -51,8 +51,10 @@ const Resume = () => {
       });
   };
 
-  function downloadFile(event) {
+  function downloadFile(event: React.SyntheticEvent<HTMLButtonElement>) {
     event.preventDefault();
+
+    if (!pdfBlob) return;
 
     // Create a temporary URL for the Blob
     const url = window.URL.createObjectURL(pdfBlob);
@@ -94,7 +96,9 @@ const Resume = () => {
           {pdfBlob && (
             <Document
               file={URL.createObjectURL(pdfBlob)} // Use the temporary URL directly
-              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+              onLoadSuccess={({ numPages }: { numPages: number }) =>
+                setNumPages(numPages)
+              }
               className="my-3 document"
             >
               <Page pageNumber={numPages} scale={getPageWidth()} />

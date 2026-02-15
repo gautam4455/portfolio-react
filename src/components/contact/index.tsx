@@ -10,7 +10,9 @@ const Contact = () => {
   } = useForm();
 
   const submitForm = () => {
-    const contactForm = document.querySelector("#contactForm");
+    const contactForm = document.querySelector(
+      "#contactForm",
+    ) as HTMLFormElement;
 
     contactForm.reset();
 
@@ -102,8 +104,8 @@ const Contact = () => {
                 required: true,
                 pattern: /^[\w]{2,}[\w-+.@]{2,}/,
               })}
-              cols="30"
-              rows="5"
+              cols={30}
+              rows={5}
               placeholder="Send a message"
               autoComplete="off"
             />

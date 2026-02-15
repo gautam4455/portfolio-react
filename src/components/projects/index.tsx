@@ -3,7 +3,7 @@ import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
 import "./Project.scss";
-import { projects } from "./projects";
+import { projects } from "./projects.ts";
 
 const Projects = () => {
   const sortedProjects = [...projects].sort((a, b) => b.id - a.id);
