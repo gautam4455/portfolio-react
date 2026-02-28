@@ -1,24 +1,80 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { object, string, type InferType } from "yup";
 
 import "./Contact.scss";
 
+const Schema = object({
+  name: string()
+    .trim()
+    .required("Please enter your name")
+    .matches(/^[A-Za-z]+(?:[ '-][A-Za-z]+)*$/, "Please enter a valid name"),
+  email: string()
+    .trim()
+    .required("Please enter your email")
+    .email("Please enter a valid email"),
+  phone: string()
+    .trim()
+    .required("Please enter your phone")
+    .matches(/^[0-9+()\-\s]{8,15}$/, "Please enter a valid phone number"),
+  message: string()
+    .trim()
+    .required("Please enter your message")
+    .min(10, "Message must be at least 10 characters")
+    .max(1000, "Message is too long"),
+});
+
+type SchemaType = InferType<typeof Schema>;
+
 const Contact = () => {
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm();
+    reset,
+    formState: { errors, isValid },
+  } = useForm<SchemaType>({
+    mode: "onBlur",
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+    resolver: yupResolver(Schema),
+  });
 
-  const submitForm = () => {
-    const contactForm = document.querySelector(
-      "#contactForm",
-    ) as HTMLFormElement;
+  const submitForm = async (data: SchemaType) => {
+    setSubmitStatus("sending");
 
-    contactForm.reset();
+    try {
+      const payload = new URLSearchParams({
+        "form-name": "contact",
+        ...data,
+      }).toString();
 
-    // window.location.reload(false);
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: payload,
+      });
 
-    alert("Form Submitted Successfully.");
+      if (res.ok) {
+        setSubmitStatus("success");
+        alert("Message sent successfully!");
+        reset();
+      } else {
+        throw new Error("Something went wrong");
+      }
+    } catch (err) {
+      console.log(err);
+      setSubmitStatus("error");
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -29,30 +85,28 @@ const Contact = () => {
 
       <div className="form-container">
         <form
-          action="/"
-          method="post"
+          name="contact"
+          method="POST"
           id="contactForm"
+          data-netlify="true"
           onSubmit={handleSubmit(submitForm)}
         >
+          {/* Hidden input required for Netlify Forms */}
+          <input type="hidden" name="form-name" value="contact" />
+
           <div className="form-group">
             <label htmlFor="name">Name</label>
 
             <input
               type="text"
               className="form-control"
-              {...register("name", {
-                required: true,
-                minLength: 3,
-                pattern: /^([a-zA-Z]{3,})$/,
-              })}
+              {...register("name")}
               placeholder="Enter your name"
               autoComplete="off"
             />
 
             {errors.name && (
-              <small className="form-text color1">
-                Please enter valid name.
-              </small>
+              <small className="form-text color1">{errors.name.message}</small>
             )}
           </div>
 
@@ -62,18 +116,13 @@ const Contact = () => {
             <input
               type="text"
               className="form-control"
-              {...register("email", {
-                required: true,
-                pattern: /^[a-zA-Z][\w-+.]+@[\w-+.]+.[a-zA-Z]{2,}$/,
-              })}
+              {...register("email")}
               placeholder="Enter your email"
               autoComplete="off"
             />
 
             {errors.email && (
-              <small className="form-text color1">
-                Please enter valid email. (Example - your_email@gmail.com)
-              </small>
+              <small className="form-text color1">{errors.email.message}</small>
             )}
           </div>
 
@@ -83,15 +132,13 @@ const Contact = () => {
             <input
               type="text"
               className="form-control"
-              {...register("phone", { required: true, pattern: /^[\d]{10}$/ })}
+              {...register("phone")}
               placeholder="Enter your mobile number"
               autoComplete="off"
             />
 
             {errors.phone && (
-              <small className="form-text color1">
-                Please enter valid mobile number.
-              </small>
+              <small className="form-text color1">{errors.phone.message}</small>
             )}
           </div>
 
@@ -100,10 +147,7 @@ const Contact = () => {
 
             <textarea
               className="form-control"
-              {...register("message", {
-                required: true,
-                pattern: /^[\w]{2,}[\w-+.@]{2,}/,
-              })}
+              {...register("message")}
               cols={30}
               rows={5}
               placeholder="Send a message"
@@ -111,13 +155,20 @@ const Contact = () => {
             />
 
             {errors.message && (
-              <small className="form-text color1">Please enter message.</small>
+              <small className="form-text color1">
+                {errors.message.message}
+              </small>
             )}
           </div>
 
           <div className="form-group form-group-btn">
-            <button type="submit" id="submitBtn" className="mybtn">
-              Submit
+            <button
+              type="submit"
+              id="submitBtn"
+              className="mybtn"
+              disabled={submitStatus === "sending" || !isValid}
+            >
+              {submitStatus === "sending" ? "Sending..." : "Submit"}
             </button>
           </div>
         </form>
