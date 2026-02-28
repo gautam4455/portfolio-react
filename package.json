@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "pdfjs-dist": "5.4.296",
     "react": "^18.2.0",
     "react-awesome-reveal": "^4.2.10",
@@ -18,7 +19,8 @@
     "react-icons": "^5.2.1",
     "react-pdf": "^10.3.0",
     "react-router-dom": "^6.23.0",
-    "typed.js": "^2.1.0"
+    "typed.js": "^2.1.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
