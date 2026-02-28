@@ -24,6 +24,16 @@
 
 <body>
   <div id="root"></div>
+
+  <!-- Hidden form for Netlify to detect at build time -->
+  <form name="contact" data-netlify="true" hidden>
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="phone" />
+    <textarea name="message"></textarea>
+  </form>
+
+
   <script type="module" src="/src/main.tsx"></script>
 
   <!-- Bootstrap JS -->
