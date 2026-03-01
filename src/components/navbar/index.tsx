@@ -5,13 +5,23 @@ import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 import "./Navbar.scss";
 
-const Navbar = () => {
+const Navbar = ({
+  setNavHeight,
+}: {
+  setNavHeight: React.Dispatch<React.SetStateAction<number>>;
+}) => {
   const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const burgericon = useRef<HTMLDivElement>(null);
   const navbarRef = useRef<HTMLDivElement>(null);
   const navbarContent = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (navbarRef.current) {
+      setNavHeight(navbarRef.current.offsetHeight);
+    }
+  }, []);
 
   const hideNavbarContent = () => {
     navbarContent.current?.classList.remove("show");
@@ -65,6 +75,12 @@ const Navbar = () => {
             <li className="nav-item" onClick={hideNavbarContent}>
               <Link className="nav-link" aria-current="page" to="/">
                 Home
+              </Link>
+            </li>
+
+            <li className="nav-item" onClick={hideNavbarContent}>
+              <Link className="nav-link" to="/experience">
+                Experience
               </Link>
             </li>
 

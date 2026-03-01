@@ -1,0 +1,244 @@
+@use '../variables.scss' as *;
+
+#experienceSection {
+  min-height: 100vh;
+  padding: 0 1.25rem 1.25rem 1.25rem;
+
+  @media screen and (max-width: 767px) {
+    padding: 0 0.5rem 1.25rem 0.5rem;
+  }
+
+  .heading-sub {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 0;
+
+    // ---- Center Vertical Line ----
+    .timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      width: 2px;
+      transform: translateX(-50%);
+      background: $primary-light;
+
+      @media (max-width: 767px) {
+        left: 1rem;
+      }
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      margin-bottom: 5rem;
+      animation: fadeSlideIn 0.5s ease both;
+
+      &.left {
+        left: 0;
+        padding-right: 3rem;
+
+        .timeline-dot {
+          right: -0.5rem;
+          left: auto;
+        }
+
+        .timeline-card {
+          text-align: left;
+        }
+      }
+
+      &.right {
+        left: 50%;
+        padding-left: 3rem;
+
+        .timeline-dot {
+          left: -0.5rem;
+        }
+
+        .timeline-card {
+          text-align: left;
+        }
+      }
+
+      // Mobile — stack everything left
+      @media (max-width: 767px) {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 2rem !important;
+        padding-right: 0 !important;
+
+        .timeline-dot {
+          left: 0.5rem !important;
+          right: auto !important;
+        }
+      }
+    }
+  }
+
+  // ---- Timeline Dot ----
+  .timeline-dot {
+    position: absolute;
+    top: 1.5rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $primary-light;
+    z-index: 1;
+
+    &.dot-active {
+      background: $primary-light;
+    }
+  }
+
+  // Pulse animation for current job dot
+  .dot-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 0, 225, 0.9);
+    animation: pulse 2s infinite;
+  }
+
+  // ---- Card ----
+  .timeline-card {
+    background: #ccc;
+    border: 1px solid $primary-light;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      border-color: $primary-light;
+      transform: translateY(-3px);
+    }
+
+    @media screen and (max-width: 767px) {
+      padding: 1rem;
+    }
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    background: transparent;
+
+    @media screen and (max-width: 575px) {
+      flex-direction: column;
+    }
+
+    .card-role {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .card-company {
+      font-size: 0.875rem;
+      color: $primary-light;
+      margin: 0;
+    }
+
+    .card-separator {
+      margin: 0 0.375rem;
+      color: #555;
+    }
+  }
+
+  .card-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    flex-shrink: 0;
+
+    @media (max-width: 575px) {
+      align-items: flex-start;
+    }
+
+    .card-duration {
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    .card-type {
+      font-size: 0.75rem;
+      color: #444;
+      white-space: nowrap;
+    }
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: #222;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  // ---- Tech Tags ----
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border-radius: 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: rgba(255, 0, 255, 0.08);
+    color: $primary-light;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 0, 255, 0.18);
+    }
+  }
+
+  // ---- Animations ----
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.8;
+    }
+
+    70% {
+      transform: translate(-50%, -50%) scale(1.6);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+  }
+}

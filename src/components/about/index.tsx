@@ -15,11 +15,14 @@ const About = () => {
       <div className="description">
         <div className="content">
           <div>
-            A <span className="color1">Passionate Self-taught Developer</span>{" "}
-            having an experience of building <span className="color1">WEB</span>{" "}
-            with <span className="color1">HTML / CSS / JavaScript</span> and
-            some other cool libraries. A developer who wants to explore every{" "}
-            <span className="color1">TECH STACK in TECHNOLOGY</span>.
+            Frontend Engineer with <span className="color1">4+ years</span>{" "}
+            building scalable web applications in{" "}
+            <span className="color1">React, Next.js</span> and{" "}
+            <span className="color1">TypeScript</span>. I specialize in{" "}
+            <span className="color1">API-driven development</span>, complex form
+            workflows and{" "}
+            <span className="color1">CMS-integrated products</span> — writing
+            clean, maintainable code in production-grade environments.
           </div>
         </div>
 

@@ -7,11 +7,13 @@ const TypingText = () => {
   useEffect(() => {
     var options = {
       strings: [
+        "<span>Front-End</span> Engineer",
         "<span>Front-End</span> Developer",
+        "<span>React</span> Developer",
+        "<span>Next.js</span> Developer",
+        "<span>Software</span> Engineer",
         "<span>Web</span> Developer",
         "<span>UI</span> Developer",
-        "<span>ReactJS</span> Developer",
-        "<span>NextJS</span> Developer",
       ],
       typeSpeed: 100,
       startDelay: 300,
