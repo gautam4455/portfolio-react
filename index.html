@@ -23,7 +23,17 @@
 </head>
 
 <body>
+  <!-- Hidden form for Netlify to detect at build time -->
+  <form name="contact" netlify-honeypot="bot-field" data-netlify="true" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="phone" />
+    <textarea name="message"></textarea>
+  </form>
+
   <div id="root"></div>
+
   <script type="module" src="/src/main.tsx"></script>
 
   <!-- Bootstrap JS -->
