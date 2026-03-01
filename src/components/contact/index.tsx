@@ -16,8 +16,8 @@ const Schema = object({
     .email("Please enter a valid email"),
   phone: string()
     .trim()
-    .required("Please enter your phone")
-    .matches(/^[0-9+()\-\s]{8,15}$/, "Please enter a valid phone number"),
+    .required("Please enter your mobile number")
+    .matches(/^[0-9+()\-\s]{8,15}$/, "Please enter a valid mobile number"),
   message: string()
     .trim()
     .required("Please enter your message")
@@ -38,13 +38,13 @@ const Contact = () => {
     reset,
     formState: { errors, isValid },
   } = useForm<SchemaType>({
-    mode: "onBlur",
     defaultValues: {
       name: "",
       email: "",
       phone: "",
       message: "",
     },
+    mode: "onTouched",
     resolver: yupResolver(Schema),
   });
 
@@ -103,6 +103,7 @@ const Contact = () => {
               {...register("name")}
               placeholder="Enter your name"
               autoComplete="off"
+              autoFocus
             />
 
             {errors.name && (
@@ -162,12 +163,7 @@ const Contact = () => {
           </div>
 
           <div className="form-group form-group-btn">
-            <button
-              type="submit"
-              id="submitBtn"
-              className="mybtn"
-              disabled={submitStatus === "sending" || !isValid}
-            >
+            <button type="submit" id="submitBtn" className="mybtn">
               {submitStatus === "sending" ? "Sending..." : "Submit"}
             </button>
           </div>
