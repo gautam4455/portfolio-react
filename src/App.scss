@@ -50,7 +50,6 @@
         color: white;
         padding: .7rem .4rem;
         border-radius: .5rem;
-        border: $border1;
         border-color: white;
         background-color: $primary-light;
         overflow: hidden;
@@ -115,19 +114,26 @@
         justify-content: space-around;
         padding: 2rem 0;
 
-        .copyright a {
-            text-decoration: none;
+        .copyright {
+            p {
+                font-size: 1.25rem;
+                margin-bottom: 0;
+            }
 
-            &:hover {
-                text-decoration: underline;
-                color: white;
+            a {
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: white;
+                }
             }
         }
 
         .social {
-            h3 {
+            p {
+                font-size: 1.75rem;
                 text-align: center;
-                margin-bottom: 1rem;
             }
 
             display: flex;

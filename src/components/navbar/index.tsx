@@ -52,6 +52,11 @@ const Navbar = ({
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
           onClick={toggleNavbarContent}
+          aria-label={
+            isCollapsed ? "Open navigation menu" : "Close navigation menu"
+          }
+          aria-expanded={!isCollapsed}
+          aria-controls="navbarContent"
         >
           {isCollapsed ? (
             <div id="burgericon" ref={burgericon}>

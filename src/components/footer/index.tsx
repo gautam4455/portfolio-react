@@ -5,33 +5,39 @@ const Footer = () => {
     <div className="footerSection">
       <div className="footer-content">
         <div className="copyright">
-          <h5>
+          <p>
             Copyright &copy; 2022 -{" "}
             <a href="/" className="color1">
               GK Inc
             </a>
             . All Rights Reserved.
-          </h5>
+          </p>
         </div>
 
         <div className="social">
-          <h3>Find Me On</h3>
+          <p>Find Me On</p>
 
           <div className="social-icons">
             <span>
-              <a href="mailto:gautam.kamble4455@gmail.com">
+              <a
+                href="mailto:gautam.kamble4455@gmail.com"
+                aria-label="Send an email."
+              >
                 <AiOutlineGoogle />
               </a>
             </span>
 
             <span>
-              <a href="https://github.com/gautam4455">
+              <a
+                href="https://github.com/gautam4455"
+                aria-label="Visit Github profile"
+              >
                 <AiFillGithub />
               </a>
             </span>
 
             <span>
-              <a href="/">
+              <a href="/" aria-label="Back to home page">
                 <AiOutlineGlobal />
               </a>
             </span>

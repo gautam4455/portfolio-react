@@ -45,7 +45,7 @@ const ScrollToTop = () => {
   return (
     <div id="scrollToTop">
       {showTopBtn && (
-        <button onClick={goToTop}>
+        <button onClick={goToTop} aria-label="Scroll to top">
           <MdOutlineFlight />
         </button>
       )}
