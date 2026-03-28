@@ -33,7 +33,7 @@ function App() {
         <div className="app" id="app">
           <Navbar setNavHeight={setNavHeight} />
 
-          <div id="main" style={{ marginTop: navHeight }}>
+          <main id="main" style={{ marginTop: navHeight }}>
             <Routes>
               <Route path="/" element={<Home />} />
 
@@ -45,7 +45,7 @@ function App() {
 
               <Route path="/contact" element={<Contact />} />
             </Routes>
-          </div>
+          </main>
 
           <ScrollToTop />
 

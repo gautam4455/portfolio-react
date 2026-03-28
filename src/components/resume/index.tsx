@@ -86,7 +86,11 @@ const Resume = () => {
 
       <div className="resume-container mb-5">
         <div className="btn-box">
-          <button className="mybtn" onClick={downloadFile}>
+          <button
+            className="mybtn"
+            onClick={downloadFile}
+            aria-label="Download CV"
+          >
             <FaDownload />
             &nbsp;Download CV
           </button>

@@ -24,13 +24,13 @@ const Projects = () => {
               <img
                 className="card-img-top"
                 src={imageSrc}
-                alt="project-img"
+                alt={`Screenshot of ${title} project"`}
                 loading="lazy"
               />
 
               <div className="card-body">
                 <div>
-                  <h4 className="card-title">{title}</h4>
+                  <h2 className="card-title">{title}</h2>
 
                   <p className="card-text">
                     <strong>{name}</strong> - {description}
@@ -47,6 +47,7 @@ const Projects = () => {
                     rel="noreferrer"
                     target="_blank"
                     className="mybtn"
+                    aria-label={`View ${title} source code on Github`}
                   >
                     Github <BiLinkExternal />
                   </a>
@@ -56,6 +57,7 @@ const Projects = () => {
                     rel="noreferrer"
                     target="_blank"
                     className="mybtn"
+                    aria-label={`View live demo of ${title} project`}
                   >
                     Demo <BiLinkExternal />
                   </a>
